@@ -87,7 +87,7 @@ class AbstactDAO:
 		entries = db.GqlQuery("SELECT * FROM "+self.getTableName())
 		for entry in entries: 
 			db.delete(entry)
-		json.dump({"result": True, "message":"Option Disabled."}, self.response.out)
+		json.dump({"result": True, "message":"Deleted."}, self.response.out)
 	
 	def executeOp(self):
 		op = self.request.get('op')

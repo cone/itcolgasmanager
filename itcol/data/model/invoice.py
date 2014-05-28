@@ -9,10 +9,10 @@ class Invoice(db.Model):
 	id_vehicle = db.StringProperty()
 	id_dispatcher = db.StringProperty()
 	id_gasStation = db.StringProperty()
-	code = db.TextProperty()
+	code = db.StringProperty()
 	gas = db.TextProperty()
 	total = db.TextProperty()
-	date = db.TextProperty()
+	date = db.StringProperty()
 	
 class Fields:
 	mappings = {

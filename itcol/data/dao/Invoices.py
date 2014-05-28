@@ -20,7 +20,8 @@ class Invoices(webapp2.RequestHandler, AbstactDAO):
 	def list(self):
 		params = self.getRequestData()
 		if params['date']:
-			entries = db.GqlQuery("SELECT * FROM Invoice WHERE date = :1", params['date'])
+			entries = db.Query(Invoice).filter('date', params['date'])
+			#entries = db.GqlQuery("SELECT * FROM Invoice where date = :1", params['date'])
 		else:
 			entries = db.GqlQuery("SELECT * FROM Invoice")
 		items = []

@@ -27,10 +27,19 @@ import logging
 import re
 
 #CARLOS
-#Model
-from Vehicles import Vehicle
+import sys
+sys.path.append('itcol')
+sys.path.append('itcol/data/dao')
+sys.path.append('itcol/data/model')
+
 #DAO
 from Vehicles import Vehicles
+from Drivers import Drivers
+from Dispatchers import Dispatchers
+from GasStations import GasStations
+from Users import Users
+from Invoices import Invoices
+from InvoicesPhone import InvoicesPhone
 
 max_entries = 1000
 
@@ -223,9 +232,14 @@ def DeleteUrl(sUrl):
 
 app = webapp2.WSGIApplication ([('/', MainPage),
                            ('/getvalue', GetValueHandler),
-							('/storeavalue', StoreAValue),
+							('/storeavalue', InvoicesPhone),
 							('/deleteentry', DeleteEntry),
-							('/vehiculos', Vehicles)
+							('/vehiculos', Vehicles),
+							('/conductores', Drivers),
+							('/despachadores', Dispatchers),
+							('/gasolineras', GasStations),
+							('/usuarios', Users),
+							('/facturas', Invoices)
                            ])
 
 
